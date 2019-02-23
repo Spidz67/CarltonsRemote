@@ -1,20 +1,27 @@
 ﻿using System;
+
 namespace Problems
 {
     public class Program
     {
-        string Prefix(string input){
-            if(input == null){
+        public string Prefix(string input){
+            if (input == null){return null;}
+
+            if(input == ""){
                 return "0,0:";
             }
-            else
-            {
+ 
             int len = input.Length;
             string[] myWords = input.Split(' ');
-            int wlen = myWords.Length;
+            int wlen = 0;
+            foreach (string item in myWords)
+            {
+                if(item != ""){
+                    wlen++;
+                }
+            }
             string result = $"{len},{wlen}:{input}";
             return result;
-            }
 
         }
         static void Main(string[] args)
